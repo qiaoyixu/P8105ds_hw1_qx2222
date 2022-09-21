@@ -41,7 +41,9 @@ mydataframe = tibble(
 mydataframe
  
 ```
-```{r}
+
+
+```{r,warning=FALSE}
 dplyr::pull(mydataframe, var = vec_numeric)
 mean(mydataframe$vec_numeric)
 
@@ -54,7 +56,9 @@ mean(mydataframe$vec_logical)
 dplyr::pull(mydataframe, var = vec_numeric)
 mean(mydataframe$vec_factor)
 ```
-```{r}
+
+
+```{r, warning=FALSE}
 as.numeric(mydataframe$vec_numeric)
 as.numeric(mydataframe$vec_char)
 as.numeric(mydataframe$vec_logical)
