@@ -1,0 +1,63 @@
+---
+title: "P8105ds_hw1_qx2222"
+author: "Qiaoyi Xu"
+date: "2022-09-18"
+output: html_document
+---
+
+**Problem 1**
+```{r}
+
+data("penguins", package = "palmerpenguins")
+```
+```{r}
+print(penguins)
+```
+
+```{r}
+mean(penguins$flipper_length_mm, na.rm = TRUE)
+```
+```{r}
+library(tidyverse)
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point(aes(color = species))
+```
+```{r}
+ggsave("penguins.pdf", width = 4, height = 6)
+```
+
+**Problem 2**
+```{r}
+library(tidyverse)
+```
+
+```{r}
+mydataframe = tibble(
+  vec_numeric = 1:10,
+  vec_char = c("a", "b","c", "d", "e","f","j","h", "i", "g"),
+  vec_logical = c(TRUE, FALSE,TRUE, FALSE,TRUE, FALSE,TRUE, FALSE,TRUE, FALSE),
+  vec_factor = factor(c("low", "median", "high", "low", "median", "high","low", "median", "high", "low"))
+)
+
+mydataframe
+ 
+```
+```{r}
+dplyr::pull(mydataframe, var = vec_numeric)
+mean(mydataframe$vec_numeric)
+
+dplyr::pull(mydataframe, var = vec_numeric)
+mean(mydataframe$vec_char)
+
+dplyr::pull(mydataframe, var = vec_numeric)
+mean(mydataframe$vec_logical)
+
+dplyr::pull(mydataframe, var = vec_numeric)
+mean(mydataframe$vec_factor)
+```
+```{r}
+as.numeric(mydataframe$vec_numeric)
+as.numeric(mydataframe$vec_char)
+as.numeric(mydataframe$vec_logical)
+as.numeric(mydataframe$vec_factor)
+```
+
